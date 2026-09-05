@@ -30,12 +30,7 @@ func main() {
 		debugUI.DrawPlayerCoords(player.Position)
 		debugUI.DrawFacingDirection(player.PlayerCamera.FacingDirection())
 		rl.BeginMode3D(player.PlayerCamera.Camera)
-		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{1, 0, 0})
-		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, 1, 0})
-		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, 0, 1})
-		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, 0, -1})
-		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{-1, 0, 0})
-		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, -1, 0})
+		vox.DrawChunk()
 
 		player.DrawPlayer()
 		rl.DrawGrid(16, 1)
