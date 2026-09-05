@@ -18,12 +18,14 @@ func main() {
 
 	debugUI := ui.NewDebugUI(rl.Red, 32)
 
+	rl.DisableCursor()
 	for !rl.WindowShouldClose() {
 		player.UpdatePlayer(rl.GetFrameTime())
 
 		rl.ClearBackground(rl.SkyBlue)
 		rl.BeginDrawing()
 		debugUI.DrawCameraCoords(player.PlayerCamera.Camera.Position)
+		debugUI.DrawPlayerCoords(player.Position)
 		rl.BeginMode3D(player.PlayerCamera.Camera)
 		player.DrawPlayer()
 		rl.DrawGrid(16, 1)

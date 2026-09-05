@@ -4,6 +4,8 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
+const CAMERA_DISTANCE = 10.0
+
 type PlayerCamera struct {
 	Camera rl.Camera3D
 }
@@ -22,8 +24,8 @@ func NewPlayerCamera() PlayerCamera {
 func (pc *PlayerCamera) UpdatePlayerCamera(player_position rl.Vector3) {
 	// Keeping Camera Offsets
 	pc.Camera.Position.X = player_position.X
-	pc.Camera.Position.Y = player_position.Y + 5
-	pc.Camera.Position.Z = player_position.Z + 5
+	pc.Camera.Position.Y = player_position.Y + CAMERA_DISTANCE
+	pc.Camera.Position.Z = player_position.Z + CAMERA_DISTANCE
 
 	// Keeping Camera Target
 	pc.Camera.Target.X = player_position.X
