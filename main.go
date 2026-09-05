@@ -26,6 +26,7 @@ func main() {
 		rl.BeginDrawing()
 		debugUI.DrawCameraCoords(player.PlayerCamera.Camera.Position)
 		debugUI.DrawPlayerCoords(player.Position)
+		debugUI.DrawFacingDirection(player.PlayerCamera.FacingDirection())
 		rl.BeginMode3D(player.PlayerCamera.Camera)
 		player.DrawPlayer()
 		rl.DrawGrid(16, 1)

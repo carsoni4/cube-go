@@ -2,6 +2,7 @@ package ui
 
 import (
 	"fmt"
+	"math"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -45,4 +46,27 @@ func (ui *DebugUI) DrawPlayerCoords(player_pos rl.Vector3) {
 
 	// Draw the string on the screen
 	rl.DrawText(posStr, 10, 90, ui.FontSize, ui.TextColor)
+}
+
+func (ui *DebugUI) DrawFacingDirection(direction rl.Vector2) {
+	directionStr := fmt.Sprintf("Facing Direction: (%.2f, %.2f) %s",
+		direction.X,
+		direction.Y,
+		_facingDirectionName(direction))
+
+	rl.DrawText(directionStr, 10, 115, ui.FontSize, ui.TextColor)
+}
+
+func _facingDirectionName(direction rl.Vector2) string {
+	if math.Abs(float64(direction.X)) >= math.Abs(float64(direction.Y)) {
+		if direction.X >= 0 {
+			return "X"
+		}
+		return "-X"
+	}
+
+	if direction.Y >= 0 {
+		return "Z"
+	}
+	return "-Z"
 }

@@ -56,7 +56,9 @@ func (p *Player) UpdatePlayer(deltaTime float32) {
 		p.Velocity.Y -= GRAVITY * deltaTime
 	}
 
-	normalizedDirection := rl.Vector2Normalize(direction)
+	normalizedDirection := rl.Vector2Normalize(
+		p.PlayerCamera.MovementDirection(direction),
+	)
 	p.Velocity.X = normalizedDirection.X * MOVEMENT_SPEED
 	p.Velocity.Z = normalizedDirection.Y * MOVEMENT_SPEED
 	p.Position.X += p.Velocity.X * deltaTime
