@@ -18,18 +18,18 @@ func NewDebugUI(color rl.Color, size int32) DebugUI {
 	}
 }
 
-func (ui *DebugUI) DrawCameraCoords(camera rl.Camera3D) {
+func (ui *DebugUI) DrawCameraCoords(camera_pos rl.Vector3) {
 	// Position String
 	posStr := fmt.Sprintf("Camera Position: (%.2f, %.2f, %.2f)",
-		camera.Position.X,
-		camera.Position.Y,
-		camera.Position.Z)
+		camera_pos.X,
+		camera_pos.Y,
+		camera_pos.Z)
 
 	// Target String
 	targetStr := fmt.Sprintf("Camera Target: (%.2f, %.2f, %.2f)",
-		camera.Target.X,
-		camera.Target.Y,
-		camera.Target.Z)
+		camera_pos.X,
+		camera_pos.Y,
+		camera_pos.Z)
 
 	// Draw the strings on the screen
 	rl.DrawText(posStr, 10, 40, ui.FontSize, ui.TextColor)

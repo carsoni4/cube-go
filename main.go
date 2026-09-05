@@ -6,27 +6,26 @@ import (
 	"fmt"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
+
+	plyr "github.com/carsoni4/cube-go/player"
 )
 
 func main() {
 	fmt.Println("Hello Carson :P")
 	rl.InitWindow(1920, 1200, "Cube-go")
 	rl.SetTargetFPS(60)
-
-	camera := rl.Camera3D{
-		Position: rl.NewVector3(0, 10, 10),
-		Target:   rl.NewVector3(0, 0, 0),
-		Up:       rl.NewVector3(0, 1, 0),
-		Fovy:     45,
-	}
+	player := plyr.NewPlayer()
 
 	debugUI := ui.NewDebugUI(rl.Red, 32)
 
 	for !rl.WindowShouldClose() {
+		player.UpdatePlayer(rl.GetFrameTime())
+
 		rl.ClearBackground(rl.SkyBlue)
 		rl.BeginDrawing()
-		debugUI.DrawCameraCoords(camera)
-		rl.BeginMode3D(camera)
+		debugUI.DrawCameraCoords(player.PlayerCamera.Camera.Position)
+		rl.BeginMode3D(player.PlayerCamera.Camera)
+		player.DrawPlayer()
 		rl.DrawGrid(16, 1)
 		rl.EndMode3D()
 		rl.EndDrawing()
