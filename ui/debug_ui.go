@@ -27,10 +27,7 @@ func (ui *DebugUI) DrawCameraCoords(camera_pos rl.Vector3) {
 		camera_pos.Z)
 
 	// Target String
-	targetStr := fmt.Sprintf("Camera Target: (%.2f, %.2f, %.2f)",
-		camera_pos.X,
-		camera_pos.Y,
-		camera_pos.Z)
+	targetStr := fmt.Sprintf("Camera Target: (not provided)")
 
 	// Draw the strings on the screen
 	rl.DrawText(posStr, 10, 40, ui.FontSize, ui.TextColor)

@@ -8,6 +8,8 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 
 	plyr "github.com/carsoni4/cube-go/player"
+
+	vox "github.com/carsoni4/cube-go/voxel"
 )
 
 func main() {
@@ -28,6 +30,13 @@ func main() {
 		debugUI.DrawPlayerCoords(player.Position)
 		debugUI.DrawFacingDirection(player.PlayerCamera.FacingDirection())
 		rl.BeginMode3D(player.PlayerCamera.Camera)
+		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{1, 0, 0})
+		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, 1, 0})
+		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, 0, 1})
+		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, 0, -1})
+		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{-1, 0, 0})
+		vox.DrawFace(rl.Vector3{0, 0, 0}, 1, rl.Green, rl.Vector3{0, -1, 0})
+
 		player.DrawPlayer()
 		rl.DrawGrid(16, 1)
 		rl.EndMode3D()
